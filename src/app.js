@@ -14,8 +14,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(3333, function () {
+app.use("/", require("./routes"));
+
+app.listen(3333 || process.env.PORT, function () {
   console.log("rodou o server");
 });
-
-app.use("/", require("./routes"));
