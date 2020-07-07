@@ -1,7 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const http = require("http");
+
+require("dotenv").config();
+
 const app = express();
+const server = http.Server(app);
 
 app.use(cors());
 app.use(express.json());
@@ -14,8 +19,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(3333, function () {
-  console.log("rodou o server");
-});
-
 app.use("/", require("./routes"));
+
+module.exports = { app: app, server: server };
