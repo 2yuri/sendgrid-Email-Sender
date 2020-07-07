@@ -1,9 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const app = express();
+const http = require("http");
 
+const app = express();
+const server = http.Server(app);
 app.use(cors());
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +19,4 @@ app.use((req, res, next) => {
 
 app.use("/", require("./routes"));
 
-app.listen(3333 || process.env.PORT, function () {
-  console.log("rodou o server");
-});
+module.exports = { app: app, server: server };
