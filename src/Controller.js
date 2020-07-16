@@ -9,7 +9,7 @@ module.exports = {
       Email.send(
         `${name} - ${email}`,
         `<h1>Nova mensagem recebida no site</h1>
-            <p>Enviado por: <b>${name}</b>" - ${email}</p>
+            <p>Enviado por: <b>${name}</b> - ${email}</p>
             <p>Telefone: ${phone}</p>
             <p>Mensagem: ${text}</p>`
       );
